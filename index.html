@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Studio Pro</title>
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --background: #1E1E2F;
+            --surface: #2A2A3F;
+            --text: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: var(--background);
+            color: var(--text);
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .toolbar {
+            background: var(--surface);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+        }
+
+        .toolbar button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--text);
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toolbar button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .toolbar button.active {
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .canvas-container {
+            background: #FFFFFF;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        canvas {
+            border-radius: 8px;
+            cursor: crosshair;
+        }
+
+        .settings-panel {
+            background: var(--surface);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .settings-panel label {
+            color: var(--text);
+        }
+
+        input[type="color"] {
+            width: 50px;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="range"] {
+            width: 150px;
+            accent-color: var(--primary);
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.1);
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="app-title">✨ Artist Studio Pro</h1>
+    
+    <div class="toolbar">
+        <button id="drawButton" class="active" title="Draw">✏️</button>
+        <button id="eraseButton" title="Erase">🧹</button>
+        <button id="fillButton" title="Fill">🪣</button>
+        <button id="smoothButton" title="Smooth">✨</button>
+        <button id="imperfectionButton" title="Add Imperfections">⚡</button>
+        <button id="animateButton" title="Animate">🎬</button>
+        <button id="undoButton" title="Undo">↩️</button>
+        <button id="resetButton" title="Reset">🔄</button>
+        <button id="saveButton" title="Save">💾</button>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="drawingCanvas" width="800" height="600"></canvas>
+    </div>
+
+    <div class="settings-panel">
+        <label for="brushSize">Size:</label>
+        <input type="number" id="brushSize" value="5" min="1" max="50">
+        <label for="brushOpacity">Opacity:</label>
+        <input type="number" id="brushOpacity" value="1" step="0.1" min="0.1" max="1">
+        <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" value="#000000">
+        <label for="speedControl">Speed:</label>
+        <input type="range" id="speedControl" min="1" max="50" value="10">
+    </div>
+
+    // ...existing JavaScript code...
+    // (Keep all the JavaScript code from your current file, 
+    // but remove the move-related functionality)
+</body>
+</html>
